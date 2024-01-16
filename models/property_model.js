@@ -6,45 +6,40 @@ const Property = mongoose.Schema({
         enum:['Sell','Rent'],
         required:true
     },
+    description:{
+        type:String,
+    },
+    address:{
+        type:String,
+        required:true
+    },
+    state:{
+        type:String,
+        required:true
+    },
     city:{
         type:String,
-        required:true
-    },
-    locality:{
-        type:String,
-        required:true
-    },
-    propertyType:{
-        type:String,
-        enum:['Apartment','Independent House','Luxury Affordable House'],
         required:true
     },
     size:{
         type:String,
         required:true
     },
-    houseType:{
+    price:{
         type:String,
-        enum:['1Rk','1BK','2BHK','3+BHK'],
         required:true
     },
     propertyAge:{
         type:String,
         required:true
     },
-    furnishing:{
+    floorNo:{
         type:String,
-        enum:['Unfurnished','Semi Furnished','Fully Furnished'],
         required:true
     },
-    facility:{
+    propertyType:{
         type:String,
-        enum:['Parking','Lift','Garden','Gas Pipline'],
-        required:true
-    },
-    bathrooms:{
-        type:String,
-        enum:['1','2','3+'],
+        enum:['Appartement','Independent House','Villa','Affordable House'],
         required:true
     },
     faching:{
@@ -52,24 +47,38 @@ const Property = mongoose.Schema({
         enum:['North','East','South','West'],
         required:true
     },
-    address:{
+    houseType:{
         type:String,
+        enum:['1Rk','1BK','2BHK','3+BHK'],
+        required:true
+    },
+    facility:{
+        type:Array,
+        // enum:['Parking','Lift','Garden','Gas Pipline','24*7 Security','Inverter'],
+        required:true
+    },
+    furnishing:{
+        type:String,
+        enum:['Unfurnished','Semi Furnished','Fully Furnished'],
         required:true
     },
     mobileNo:{
         type:String,
         required:true,
-        unique:true
     },
     email:{
         type:String,
         required:true,
-        unique:true
     },
     image:{
         type:Array,
         required:true
-    }
+    },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'user',
+        required:true
+   },
 },{
     timestamps:true,
     toJSON:{

@@ -3,7 +3,6 @@ const UserModel = require('../models/user_model');
 const { verifyToken } = require('../utils/verifyToken');
 const { uploads } = require('../middlewares/cloudinary');
 
-
 const PropertyContoller = {
     addProperty: async function (req, res) {
         try {

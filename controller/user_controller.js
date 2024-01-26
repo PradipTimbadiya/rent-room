@@ -86,6 +86,7 @@ const UserContoller ={
             return res.status(400).json(response);
         }
     },
+                                   
     signIn:async function(req,res){
         try {
             const data = req.body;
@@ -192,7 +193,6 @@ const UserContoller ={
             await OtpModel.findOneAndDelete({ email: findUser.email })
             const response = { success: true, message: "otp is right" };
             return res.json(response);
-
         } catch (error) {
             const response = { success: false, message: error.message };
             return res.status(400).json(response);
@@ -318,8 +318,8 @@ const UserContoller ={
 
             const response = { success: true, message: "New User Created", token: userToken };
             return res.status(200).json(response);
-
-        } catch (error) {
+          
+        }catch (error) {
             const response = { success: false, message: error.message };
             return res.status(400).json(response)
         }
@@ -357,7 +357,6 @@ const UserContoller ={
                 message: "Profile Picture Changed"
             };
             return res.status(200).json(response);
-
         } catch (error) {
             const response = { success: false, message: error.message };
             return res.status(400).json(response)
